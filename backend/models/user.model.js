@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema(
       skills: [{ type: String }],
       resume: { type: String }, // URL to resume file
       resumeOriginalName: { type: String },
-      company: { type: mongoose.Schema.Types.ObjectId, ref: "Company" },
+      company: { type: mongoose.Schema.Types.ObjectId, ref: "Company" }, // Only for employers
       profilePhoto: {
         type: String,
         default: "",
