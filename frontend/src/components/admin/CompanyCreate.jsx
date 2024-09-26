@@ -12,10 +12,13 @@ import { setSingleCompany } from "@/redux/companySlice";
 
 const CompanyCreate = () => {
   const navigate = useNavigate();
-  const [companyName, setCompanyName] = useState();
+  const [companyName, setCompanyName] = useState("");
   const dispatch = useDispatch();
 
   const registerNewCompany = async () => {
+    if (!companyName.trim()) {
+      return toast.error("Company name cannot be empty");
+    }
     try {
       const res = await axios.post(
         `${COMPANY_API_END_POINT}/register`,
@@ -35,6 +38,7 @@ const CompanyCreate = () => {
       }
     } catch (error) {
       console.log(error);
+      toast.error("Something went wrong. Please try again.");
     }
   };
 
