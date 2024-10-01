@@ -19,7 +19,7 @@ const CompanyCreate = () => {
   const createNewCompany = async () => {
     try {
       const res = await axios.post(
-        "http://jobica.onrender.com/api/v1/company/register",
+        "https://jobica.onrender.com/api/v1/company/register",
         { companyName },
         {
           headers: {

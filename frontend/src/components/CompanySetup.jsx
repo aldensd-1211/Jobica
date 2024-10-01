@@ -45,7 +45,7 @@ const CompanySetup = () => {
     }
     try {
       const res = await axios.put(
-        `http://jobica.onrender.com/api/v1/company/update/${params.id}`,
+        `https://jobica.onrender.com/api/v1/company/update/${params.id}`,
         formData,
         {
           headers: {
