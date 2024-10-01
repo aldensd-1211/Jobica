@@ -1,62 +1,49 @@
-import React, { useState } from "react";
-import { Button } from "./ui/button";
-import { Search } from "lucide-react";
-import { useDispatch } from "react-redux";
-import { setSearchedQuery } from "@/redux/jobSlice";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import { Button } from './ui/button'
+import { Search } from 'lucide-react'
+import { useDispatch } from 'react-redux';
+import { setSearchText } from '@/redux/jobSlice';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
-  const [query, setQuery] = useState("");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+    const [query, setQuery] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-  const searchJobHandler = () => {
-    dispatch(setSearchedQuery(query));
-    navigate("/browse");
-  };
 
-  return (
-    <div className="relative bg-[#1F2937] py-16">
-      {" "}
-      {/* Reduced padding here */}
-      <div className="container mx-auto px-4 text-center">
-        {/* Top Badge */}
-        <span className="inline-block bg-[#10B981] text-white font-semibold px-4 py-2 rounded-full mb-4 text-sm tracking-wide animate-pulse">
-          Trusted by Thousands of Job Seekers
-        </span>
+    const searchJobHandler = () => {
+        dispatch(setSearchText(query));
+        navigate("/browse");
+    }
 
-        {/* Main Heading */}
-        <h1 className="text-5xl font-extrabold text-white leading-tight tracking-tight mb-6">
-          Discover, Apply & Land Your <br />
-          <span className="text-[#FBBF24]">Dream Job</span> with{" "}
-          <span className="text-[#10B981]">Jobica</span>
-        </h1>
-
-        {/* Description */}
-        <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
-          Jobica is the go-to platform for job seekers and recruiters. Whether
-          you're starting your career or looking for new opportunities, we
-          provide the best job listings to help you succeed.
-        </p>
-
-        {/* Search Bar */}
-        <div className="relative max-w-2xl mx-auto">
-          <input
-            type="text"
-            placeholder="Search for your dream job..."
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full py-4 pl-6 pr-16 text-gray-900 rounded-full shadow-md focus:outline-none focus:ring-4 focus:ring-[#10B981] transition duration-300"
-          />
-          <Button
-            onClick={searchJobHandler}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#FBBF24] hover:bg-[#F59E0B] text-gray-900 font-bold px-6 py-3 rounded-full transition-colors duration-300"
-          >
-            <Search className="h-5 w-5" />
-          </Button>
+    return (
+        <div className='text-center'>
+            <div className='flex flex-col gap-5 my-10'>
+                <div className='text-center mx-auto'>
+                    <div className="text-[#F83002] px-4 py-2 rounded-full bg-gray-100 font-medium" >No. 1 Job Hunt Website</div>
+                </div>
+                <div>
+                    <h1 className='text-5xl font-bold'>Search, Apply & <br /> Get Your <span className='text-[#6A38C2]'>Dream Jobs</span></h1>
+                </div>
+                <div>
+                    <p className='text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus adipisci cupiditate cum.<br /> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div className='flex w-[40%] shadow-lg border pl-3 border-gray-200 rounded-full items-center gap-4 mx-auto'>
+                    <input
+                        type="text"
+                        name="query"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="Find your dream jobs"
+                        className="outline-none border-none w-full"
+                    />
+                    <Button onClick={searchJobHandler} className='rounded-r-full bg-[#6A38C2]'>
+                        <Search className='h-5 w-5' />
+                    </Button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
-};
+    )
+}
 
-export default HeroSection;
+export default HeroSection

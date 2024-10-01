@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
 const corsOptions = {
-  origin: "https://jobica.onrender.com/",
+  origin: "https://jobica.onrender.com",
   credentials: true,
 };
 app.use(cors(corsOptions));
