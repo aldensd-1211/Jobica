@@ -62,8 +62,10 @@ const CompaniesTable = () => {
                   <AvatarImage src={company?.logo} />
                 </Avatar>
               </TableCell>
-              <TableCell>{company?.name}</TableCell>
-              <TableCell>{company?.createdAt.split("T")[0]}</TableCell>
+              <TableCell className="text-gray-200">{company?.name}</TableCell>
+              <TableCell className="text-gray-200">
+                {company?.createdAt.split("T")[0]}
+              </TableCell>
               <TableCell className="float-right cursor-pointer">
                 <Popover>
                   <PopoverTrigger>

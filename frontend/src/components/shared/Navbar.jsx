@@ -44,7 +44,7 @@ const Navbar = () => {
               <Link to="/login">
                 <Button
                   variant={"outline"}
-                  className="border-white text-white hover:bg-white hover:text-gray-900 transition-colors duration-300"
+                  className="border-white text-gray-200 hover:bg-white hover:text-gray-900 transition-colors duration-300"
                 >
                   Login
                 </Button>

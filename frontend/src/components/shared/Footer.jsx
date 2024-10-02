@@ -11,7 +11,7 @@ const Footer = () => {
               Job<span className="text-[#FBBF24]">ica</span>
             </h2>
             <p className="text-sm text-gray-400">
-              © 2024 Your Company. All rights reserved.
+              © 2024 Jobica. All rights reserved.
             </p>
           </div>
 

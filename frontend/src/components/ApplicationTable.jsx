@@ -29,9 +29,15 @@ const ApplicationTable = () => {
         {allAppliedJobs &&
           allAppliedJobs?.map((appliedjob) => (
             <TableRow key={appliedjob?._id}>
-              <TableCell>{appliedjob?.createdAt.split("T")[0]}</TableCell>
-              <TableCell>{appliedjob?.job?.title}</TableCell>
-              <TableCell>{appliedjob?.job?.company?.name}</TableCell>
+              <TableCell className="text-gray-500">
+                {appliedjob?.createdAt.split("T")[0]}
+              </TableCell>
+              <TableCell className="text-gray-500">
+                {appliedjob?.job?.title}
+              </TableCell>
+              <TableCell className="text-gray-500">
+                {appliedjob?.job?.company?.name}
+              </TableCell>
               <TableCell className="text-right">
                 <Badge
                   className={`${
