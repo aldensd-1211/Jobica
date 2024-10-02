@@ -62,8 +62,8 @@ const CompaniesTable = () => {
                   <AvatarImage src={company?.logo} />
                 </Avatar>
               </TableCell>
-              <TableCell className="text-gray-200">{company?.name}</TableCell>
-              <TableCell className="text-gray-200">
+              <TableCell className="text-gray-500">{company?.name}</TableCell>
+              <TableCell className="text-gray-500">
                 {company?.createdAt.split("T")[0]}
               </TableCell>
               <TableCell className="float-right cursor-pointer">
