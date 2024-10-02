@@ -57,82 +57,89 @@ const Login = () => {
       navigate("/");
     }
   }, []);
+
   return (
-    <>
+    <div className="bg-[#1F2937] min-h-screen">
       <Navbar />
       <div className="flex items-center justify-center max-w-7xl mx-auto">
         <form
           onSubmit={submitHandler}
-          className="w-1/2 border border-gray-200 rounded-md p-4 my-10"
+          className="w-1/2 bg-[#374151] border border-gray-600 rounded-md p-4 my-10 shadow-lg"
         >
-          <h1 className="font-bold text-xl mb-4">Login</h1>
+          <h1 className="font-bold text-xl mb-5 text-white">Login</h1>
           <div className="my-2">
-            <Label>Email</Label>
+            <Label className="text-gray-200">Email</Label>
             <Input
               type="email"
               name="email"
               value={input.email}
               onChange={changeEventHandler}
-              placeholder="patel@gmail.com"
+              placeholder="user@gmail.com"
+              className="bg-[#1F2937] text-gray-200 placeholder-gray-400"
             />
           </div>
           <div className="my-2">
-            <Label>Password</Label>
+            <Label className="text-gray-200">Password</Label>
             <Input
               type="password"
               name="password"
               value={input.password}
               onChange={changeEventHandler}
               placeholder="password"
+              className="bg-[#1F2937] text-gray-200 placeholder-gray-400"
             />
           </div>
-          <RadioGroup
-            defaultValue="comfortable"
-            className="flex items-center gap-4 my-5"
-          >
-            <div className="flex items-center space-x-2">
-              <input
-                type="radio"
-                name="role"
-                value="student"
-                checked={input.role === "student"}
-                onChange={changeEventHandler}
-              />
-              <Label htmlFor="r1">Students</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <input
-                type="radio"
-                name="role"
-                value="recruiter"
-                checked={input.role === "recruiter"}
-                onChange={changeEventHandler}
-              />
-              <Label htmlFor="r2">Recruiter</Label>
-            </div>
-          </RadioGroup>
+          <div className="flex items-center justify-between">
+            <RadioGroup
+              defaultValue="comfortable"
+              className="flex items-center gap-4 my-5 text-gray-200"
+            >
+              <div className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="role"
+                  value="student"
+                  checked={input.role === "student"}
+                  onChange={changeEventHandler}
+                  className="cursor-pointer"
+                />
+                <Label htmlFor="r1">Students</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="role"
+                  value="recruiter"
+                  checked={input.role === "recruiter"}
+                  onChange={changeEventHandler}
+                  className="cursor-pointer"
+                />
+                <Label htmlFor="r2">Recruiter</Label>
+              </div>
+            </RadioGroup>
+          </div>
           {loading ? (
-            <Button className="w-full my-4">
+            <Button className="w-full my-4 bg-[#3B82F6] text-white hover:bg-[#2563EB]">
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Please wait
             </Button>
           ) : (
-            <Button type="submit" className="w-full my-4">
+            <Button
+              type="submit"
+              className="w-full my-4 bg-[#3B82F6] text-white hover:bg-[#2563EB]"
+            >
               Login
             </Button>
           )}
-          <span className="text-sm">
+          <span className="text-sm text-gray-300">
             Don't have an account?{" "}
-            <Link
-              to={"/signup"}
-              className="text-blue-500 cursor-pointer underline"
-            >
+            <Link to={"/signup"} className="text-[#3B82F6]">
               Signup
             </Link>
           </span>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

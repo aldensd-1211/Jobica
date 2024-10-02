@@ -73,56 +73,60 @@ const Singup = () => {
     }
   }, []);
   return (
-    <>
+    <div className="bg-[#1F2937] min-h-screen">
       <Navbar />
       <div className="flex items-center justify-center max-w-7xl mx-auto">
         <form
           onSubmit={submitHandler}
-          className="w-1/2 border border-gray-200 rounded-md p-4 my-10"
+          className="w-1/2 bg-[#374151] border border-gray-600 rounded-md p-4 my-10 shadow-lg"
         >
-          <h1 className="font-bold text-xl mb-4">Sign Up</h1>
+          <h1 className="font-bold text-xl mb-5 text-white">Sign Up</h1>
           <div className="my-2">
-            <Label>Full Name</Label>
+            <Label className="text-gray-200">Full Name</Label>
             <Input
               type="text"
               value={input.fullname}
               name="fullname"
               onChange={changeEventHandler}
-              placeholder="patel"
+              placeholder="Full name"
+              className="bg-[#1F2937] text-gray-200 placeholder-gray-400"
             />
           </div>
           <div className="my-2">
-            <Label>Email</Label>
+            <Label className="text-gray-200">Email</Label>
             <Input
               type="email"
               value={input.email}
               name="email"
               onChange={changeEventHandler}
-              placeholder="patel@gmail.com"
+              placeholder="user@gmail.com"
+              className="bg-[#1F2937] text-gray-200 placeholder-gray-400"
             />
           </div>
           <div className="my-2">
-            <Label>Phone Number</Label>
+            <Label className="text-gray-200">Phone Number</Label>
             <Input
               type="text"
               value={input.phoneNumber}
               name="phoneNumber"
               onChange={changeEventHandler}
-              placeholder="+918080808080"
+              placeholder="+91 8080808080"
+              className="bg-[#1F2937] text-gray-200 placeholder-gray-400"
             />
           </div>
           <div className="my-2">
-            <Label>Password</Label>
+            <Label className="text-gray-200">Password</Label>
             <Input
               type="password"
               value={input.password}
               name="password"
               onChange={changeEventHandler}
               placeholder="password"
+              className="bg-[#1F2937] text-gray-200 placeholder-gray-400"
             />
           </div>
           <div className="flex items-center justify-between">
-            <RadioGroup className="flex items-center gap-4 my-5">
+            <RadioGroup className="flex items-center gap-4 my-5 text-gray-200">
               <div className="flex items-center space-x-2">
                 <Input
                   type="radio"
@@ -147,37 +151,37 @@ const Singup = () => {
               </div>
             </RadioGroup>
             <div className="flex items-center gap-2">
-              <Label>Profile</Label>
+              <Label className="text-gray-200">Profile</Label>
               <Input
                 accept="image/*"
                 type="file"
                 onChange={changeFileHandler}
-                className="cursor-pointer"
+                className="cursor-pointer bg-[#1F2937] text-gray-200 placeholder-gray-400"
               />
             </div>
           </div>
           {loading ? (
-            <Button className="w-full my-4">
+            <Button className="w-full my-4 bg-[#3B82F6] text-white hover:bg-[#2563EB]">
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Please wait
             </Button>
           ) : (
-            <Button type="submit" className="w-full my-4">
+            <Button
+              type="submit"
+              className="w-full my-4 bg-[#3B82F6] text-white hover:bg-[#2563EB]"
+            >
               Sign Up
             </Button>
           )}
-          <span className="text-sm">
+          <span className="text-sm text-gray-300">
             Already have an account?{" "}
-            <Link
-              to={"/login"}
-              className="text-blue-500 cursor-pointer underline"
-            >
+            <Link to={"/login"} className="text-[#3B82F6]">
               Login
             </Link>
           </span>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

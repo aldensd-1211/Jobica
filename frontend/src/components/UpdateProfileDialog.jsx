@@ -75,16 +75,16 @@ export function UpdateProfileDialog({ open, setOpen }) {
   return (
     <Dialog open={open}>
       <DialogContent
-        className="sm:max-w-[425px]"
+        className="bg-[#1F2937] sm:max-w-[425px]"
         onInteractOutside={() => setOpen(false)}
       >
         <DialogHeader>
-          <DialogTitle>Update Profile</DialogTitle>
+          <DialogTitle className="text-white">Update Profile</DialogTitle>
         </DialogHeader>
         <form onSubmit={submitHandler}>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
+              <Label htmlFor="name" className="text-right text-white">
                 Name
               </Label>
               <Input
@@ -92,11 +92,11 @@ export function UpdateProfileDialog({ open, setOpen }) {
                 value={input.fullname}
                 name="fullname"
                 onChange={changeHandler}
-                className="col-span-3"
+                className="col-span-3 bg-gray-700 text-white"
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="email" className="text-right">
+              <Label htmlFor="email" className="text-right text-white">
                 Email
               </Label>
               <Input
@@ -104,11 +104,11 @@ export function UpdateProfileDialog({ open, setOpen }) {
                 value={input.email}
                 name="email"
                 onChange={changeHandler}
-                className="col-span-3"
+                className="col-span-3 bg-gray-700 text-white"
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="number" className="text-right">
+              <Label htmlFor="number" className="text-right text-white">
                 Number
               </Label>
               <Input
@@ -116,11 +116,11 @@ export function UpdateProfileDialog({ open, setOpen }) {
                 value={input.phoneNumber}
                 name="phoneNumber"
                 onChange={changeHandler}
-                className="col-span-3"
+                className="col-span-3 bg-gray-700 text-white"
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="bio" className="text-right">
+              <Label htmlFor="bio" className="text-right text-white">
                 Bio
               </Label>
               <Input
@@ -128,11 +128,11 @@ export function UpdateProfileDialog({ open, setOpen }) {
                 value={input.bio}
                 name="bio"
                 onChange={changeHandler}
-                className="col-span-3"
+                className="col-span-3 bg-gray-700 text-white"
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="skills" className="text-right">
+              <Label htmlFor="skills" className="text-right text-white">
                 Skills
               </Label>
               <Input
@@ -140,11 +140,11 @@ export function UpdateProfileDialog({ open, setOpen }) {
                 value={input.skills}
                 name="skills"
                 onChange={changeHandler}
-                className="col-span-3"
+                className="col-span-3 bg-gray-700 text-white"
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="file" className="text-right">
+              <Label htmlFor="file" className="text-right text-white">
                 Resume
               </Label>
               <Input
@@ -153,18 +153,20 @@ export function UpdateProfileDialog({ open, setOpen }) {
                 name="file"
                 accept="application/pdf"
                 onChange={fileChangeHandler}
-                className="col-span-3"
+                className="col-span-3 bg-gray-700 text-white"
               />
             </div>
           </div>
           <DialogFooter>
             {loading ? (
-              <Button>
+              <Button className="w-full my-4">
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 Please wait
               </Button>
             ) : (
-              <Button type="submit">Update</Button>
+              <Button type="submit" className="w-full my-4">
+                Update
+              </Button>
             )}
           </DialogFooter>
         </form>

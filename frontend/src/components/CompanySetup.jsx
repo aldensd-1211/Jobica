@@ -75,68 +75,76 @@ const CompanySetup = () => {
   }, [singleCompany]);
 
   return (
-    <div>
+    <div className="bg-[#1F2937] min-h-screen">
       <Navbar />
-      <div className="max-w-xl mx-auto my-10">
+      <div className="max-w-xl mx-auto my-10 p-8 bg-[#2D3748] rounded-md shadow-lg">
         <form onSubmit={submitHandler} className="shadow-lg p-8">
           <div className="flex items-center gap-5 mb-10">
             <Button
-              variant="ghost"
+              variant="outline"
               onClick={() => navigate("/admin/companies")}
-              className="flex items-center gap-2 text-gray-500 fot-semibold"
+              className="flex items-center gap-2 text-gray-500 font-semibold"
             >
               <ArrowLeft />
               <span>Back</span>
             </Button>
-            <h1 className="font-bold text-xl">Company Setup</h1>
+            <h1 className="font-bold text-xl text-gray-200">Company Setup</h1>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label>Company Name</Label>
+              <Label className="text-gray-200">Company Name</Label>
               <Input
                 type="text"
                 name="name"
                 value={input.name}
                 onChange={changeEventHandler}
+                className="bg-[#374151] text-gray-200"
               />
             </div>
             <div>
-              <Label>Description</Label>
+              <Label className="text-gray-200">Description</Label>
               <Input
                 type="text"
                 name="description"
                 value={input.description}
                 onChange={changeEventHandler}
+                className="bg-[#374151] text-gray-200"
               />
             </div>
             <div>
-              <Label>Website</Label>
+              <Label className="text-gray-200">Website</Label>
               <Input
                 type="text"
                 name="website"
                 value={input.website}
                 onChange={changeEventHandler}
+                className="bg-[#374151] text-gray-200"
               />
             </div>
             <div>
-              <Label>Location</Label>
+              <Label className="text-gray-200">Location</Label>
               <Input
                 type="text"
                 name="location"
                 value={input.location}
                 onChange={changeEventHandler}
+                className="bg-[#374151] text-gray-200"
               />
             </div>
             <div>
-              <Label>Logo</Label>
+              <Label className="text-gray-200">Logo</Label>
               <Input
                 accept="image/*"
                 type="file"
                 onChange={changeFileHandler}
+                className="bg-[#374151] text-gray-200"
               />
             </div>
           </div>
-          <Button type="submit" className="w-full mt-8">
+          <Button
+            type="submit"
+            className="w-full my-4 bg-blue-600 hover:bg-blue-700"
+          >
             Update
           </Button>
         </form>
