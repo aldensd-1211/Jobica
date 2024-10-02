@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Search } from "lucide-react";
 import { useDispatch } from "react-redux";
-import { setSearchedQuery } from "@/redux/jobSlice";
+import { setSearchText } from "@/redux/jobSlice";
 import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
@@ -11,40 +11,36 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   const searchJobHandler = () => {
-    dispatch(setSearchedQuery(query));
+    dispatch(setSearchText(query));
     navigate("/browse");
   };
 
   return (
-    <div className="relative bg-[#1F2937] py-16">
-      {" "}
-      {/* Reduced padding here */}
+    <div className="relative bg-gradient-to-b from-[#111827] via-[#1F2937] to-[#374151] py-20">
       <div className="container mx-auto px-4 text-center">
-        {/* Top Badge */}
         <span className="inline-block bg-[#10B981] text-white font-semibold px-4 py-2 rounded-full mb-4 text-sm tracking-wide animate-pulse">
           Trusted by Thousands of Job Seekers
         </span>
 
-        {/* Main Heading */}
         <h1 className="text-5xl font-extrabold text-white leading-tight tracking-tight mb-6">
           Discover, Apply & Land Your <br />
           <span className="text-[#FBBF24]">Dream Job</span> with{" "}
           <span className="text-[#10B981]">Jobica</span>
         </h1>
 
-        {/* Description */}
         <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
           Jobica is the go-to platform for job seekers and recruiters. Whether
           you're starting your career or looking for new opportunities, we
           provide the best job listings to help you succeed.
         </p>
 
-        {/* Search Bar */}
         <div className="relative max-w-2xl mx-auto">
           <input
             type="text"
-            placeholder="Search for your dream job..."
+            name="query"
+            value={query}
             onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search for your dream job..."
             className="w-full py-4 pl-6 pr-16 text-gray-900 rounded-full shadow-md focus:outline-none focus:ring-4 focus:ring-[#10B981] transition duration-300"
           />
           <Button
