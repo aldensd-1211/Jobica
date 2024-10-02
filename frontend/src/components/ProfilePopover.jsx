@@ -40,7 +40,7 @@ export function ProfilePopover() {
           <AvatarImage src={authUser?.profile?.profilePhoto} alt="@shadcn" />
         </Avatar>
       </PopoverTrigger>
-      <PopoverContent className="w-80">
+      <PopoverContent className="w-80 bg-gray-800 text-white shadow-lg p-4 rounded-lg">
         <div className="grid gap-4">
           <div className=" flex  gap-2 space-y-2">
             <Avatar className="cursor-pointer">
@@ -50,15 +50,13 @@ export function ProfilePopover() {
               />
             </Avatar>
             <div>
-              <h4 className="font-medium leading-none">{authUser?.fullname}</h4>
+              <h4 className="font-medium text-lg">{authUser?.fullname}</h4>
               {authUser && authUser?.role === "student" && (
-                <p className="text-sm text-muted-foreground">
-                  {authUser?.profile.bio}
-                </p>
+                <p className="text-sm text-gray-400">{authUser?.profile.bio}</p>
               )}
             </div>
           </div>
-          <div className="flex flex-col gap-3 text-gray-600">
+          <div className="mt-4 text-white">
             {authUser && authUser?.role === "student" && (
               <Link
                 to="/profile"
@@ -71,7 +69,7 @@ export function ProfilePopover() {
 
             <div
               onClick={logoutHandler}
-              className=" flex w-fit items-center gap-2 cursor-pointer"
+              className="flex items-center gap-2 mt-4 cursor-pointer"
             >
               <LogOut />
               <p>Logout</p>

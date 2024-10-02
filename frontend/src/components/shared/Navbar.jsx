@@ -9,71 +9,41 @@ const Navbar = () => {
   return (
     <div className="bg-gradient-to-r from-[#111827] to-[#374151] shadow-lg">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 px-4">
-        {/* Logo */}
         <div>
           <h1 className="text-3xl font-extrabold text-white">
             Job<span className="text-[#FBBF24]">ica</span>
           </h1>
         </div>
-
-        {/* Nav Links */}
         <div className="flex items-center gap-12">
           <ul className="flex font-medium items-center gap-6 text-white">
-            {user && user.role === "recruiter" ? (
+            {authUser && authUser.role === "recruiter" ? (
               <>
-                <li>
-                  <Link
-                    to="/admin/companies"
-                    className="hover:text-[#FBBF24] transition-colors duration-300"
-                  >
-                    Companies
-                  </Link>
+                <li className="hover:text-[#FBBF24] transition-colors duration-300">
+                  <Link to={"/admin/companies"}>Companies</Link>
                 </li>
-                <li>
-                  <Link
-                    to="/admin/jobs"
-                    className="hover:text-[#FBBF24] transition-colors duration-300"
-                  >
-                    Jobs
-                  </Link>
+                <li className="hover:text-[#FBBF24] transition-colors duration-300">
+                  <Link to={"/admin/jobs"}>Jobs</Link>
                 </li>
               </>
             ) : (
               <>
-                <li>
-                  <Link
-                    to="/"
-                    className="hover:text-[#FBBF24] transition-colors duration-300"
-                  >
-                    Home
-                  </Link>
+                <li className="hover:text-[#FBBF24] transition-colors duration-300">
+                  <Link to={"/"}>Home</Link>
                 </li>
-                <li>
-                  <Link
-                    to="/jobs"
-                    className="hover:text-[#FBBF24] transition-colors duration-300"
-                  >
-                    Jobs
-                  </Link>
+                <li className="hover:text-[#FBBF24] transition-colors duration-300">
+                  <Link to={"/jobs"}>Jobs</Link>
                 </li>
-                <li>
-                  <Link
-                    to="/browse"
-                    className="hover:text-[#FBBF24] transition-colors duration-300"
-                  >
-                    Browse
-                  </Link>
+                <li className="hover:text-[#FBBF24] transition-colors duration-300">
+                  <Link to={"/browse"}>Browse</Link>
                 </li>
               </>
             )}
           </ul>
-
-          {/* Authentication */}
-          {!user ? (
+          {!authUser ? (
             <div className="flex items-center gap-4">
               <Link to="/login">
                 <Button
-                  variant="outline"
+                  variant={"outline"}
                   className="border-white text-white hover:bg-white hover:text-gray-900 transition-colors duration-300"
                 >
                   Login
@@ -86,55 +56,7 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <Popover>
-              <PopoverTrigger asChild>
-                <Avatar className="cursor-pointer">
-                  <AvatarImage
-                    src={user?.profile?.profilePhoto}
-                    alt="User Profile"
-                  />
-                </Avatar>
-              </PopoverTrigger>
-              <PopoverContent className="w-80 bg-gray-800 text-white shadow-lg p-4 rounded-lg">
-                <div className="flex gap-4 items-center">
-                  <Avatar className="cursor-pointer">
-                    <AvatarImage
-                      src={user?.profile?.profilePhoto}
-                      alt="User Profile"
-                    />
-                  </Avatar>
-                  <div>
-                    <h4 className="font-medium text-lg">{user?.fullname}</h4>
-                    <p className="text-sm text-gray-400">
-                      {user?.profile?.bio}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-4 text-white">
-                  {user && user.role === "student" && (
-                    <div className="flex items-center gap-2 cursor-pointer">
-                      <User2 />
-                      <Button
-                        variant="link"
-                        className="text-white hover:text-[#FBBF24]"
-                      >
-                        <Link to="/profile">View Profile</Link>
-                      </Button>
-                    </div>
-                  )}
-                  <div className="flex items-center gap-2 mt-4 cursor-pointer">
-                    <LogOut />
-                    <Button
-                      onClick={logoutHandler}
-                      variant="link"
-                      className="text-white hover:text-[#FBBF24]"
-                    >
-                      Logout
-                    </Button>
-                  </div>
-                </div>
-              </PopoverContent>
-            </Popover>
+            <ProfilePopover />
           )}
         </div>
       </div>
